@@ -120,11 +120,11 @@ Vector sor_solver(Matrix A, Vector b,
     Vector phi = std::move(initial_guess);
     auto residual = norm(sub(mul(A, phi), b));
     while (residual > max_diff) {
-        for (int i = 0; i < A.r(); i++) {
+        for (int i = 0; i < A.c(); i++) {
             double sigma = 0;
-            for (int j = 0; j < A.c(); j++) {
+            for (int j = 0; j < A.r(); j++) {
                 if (j != i) {
-                    sigma += A(i, j) * phi(j);
+                    sigma += A(j, i) * phi(j);
                 }
             }
             phi(i) = (1 - omega) * phi(i) + (omega / A(i, i)) * (b(i) - sigma);

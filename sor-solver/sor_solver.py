@@ -45,9 +45,6 @@ b = np.array([2, 21, -12, -6])
 
 initial_guess = np.zeros(4)
 
-# print(np.matmul(A,initial_guess));
 
-print(np.linalg.norm([1,2,3,4]))
-
-# phi = sor_solver(A, b, omega, initial_guess, residual_convergence)
-# print(phi)
+phi = sor_solver(A, b, omega, initial_guess, residual_convergence)
+print(phi)
